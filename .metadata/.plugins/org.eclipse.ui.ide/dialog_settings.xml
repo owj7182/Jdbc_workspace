@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="CleanDialogSettings">
+		<item key="TOGGLE_SELECTED" value="false"/>
+		<item key="DIALOG_WIDTH" value="581"/>
+		<item key="DIALOG_HEIGHT" value="434"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\dev\수업자료\jdbc\JDBC기본 수업 자료\minProject\2023-11-10miniProject(찐찐찐최종본).zip"/>
+			<item value="C:\dev\수업자료\jdbc\JDBC기본 수업 자료\minProject\2023-11-09 miniproject(찐찐최종본).zip"/>
+			<item value="C:\dev\수업자료\jdbc\JDBC기본 수업 자료\minProject\2023-11-09 miniproject(찐최종본).zip"/>
+			<item value="C:\dev\수업자료\jdbc\JDBC기본 수업 자료\minProject\11-07 백업용.zip"/>
+			<item value="C:\Users\sisna\Downloads\cartooncafe_format-20231104 (1).zip"/>
+			<item value="C:\Users\sisna\Downloads\04-callablestatement.zip"/>
+		</list>
+	</section>
+</section>

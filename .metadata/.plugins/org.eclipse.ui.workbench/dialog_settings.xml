@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
+	</section>
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\dev\수업자료\jdbc\JDBC기본 수업 자료\minProject\2023-11-09 miniProject(완전 최종).zip"/>
+			<item value="C:\dev\수업자료\jdbc\JDBC기본 수업 자료\minProject\2023-11-08 miniProject(최종본).zip"/>
+			<item value="C:\dev\수업자료\jdbc\JDBC기본 수업 자료\minProject\2023-11-08 join전 miniProject.zip"/>
+			<item value="C:\dev\수업자료\jdbc\JDBC기본 수업 자료\minProject\2023-11-08 miniProject-cartoonCafe.zip"/>
+			<item value="C:\dev\수업자료\jdbc\JDBC기본 수업 자료\minProject\2023-11-07miniProject(최종본).zip"/>
+			<item value="C:\dev\수업자료\jdbc\JDBC기본 수업 자료\minProject\2023-11-07 miniProject.zip"/>
+			<item value="C:\dev\수업자료\jdbc\JDBC기본 수업 자료\minProject\2023-11-06 miniProject.zip"/>
+			<item value="C:\dev\수업자료\jdbc\JDBC기본 수업 자료\minProject\miniProject.zip"/>
+			<item value="C:\dev\수업자료\miniP.zip"/>
+			<item value="C:\Workspaces\jdbc_workspace\jdbc1.zip"/>
+			<item value="C:\Workspaces\jdbc_workspace\jdbc.zip"/>
+		</list>
+	</section>
+	<section name="ZipFileImportWizard">
+	</section>
+</section>

@@ -1,0 +1,205 @@
+package com.sh.tb_user.view;
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Scanner;
+
+import com.sh.tb_user.controller.Tb_userController;
+import com.sh.tb_user.model.entity.Tb_user;
+
+public class Tb_userMenu {
+	private Scanner sc = new Scanner(System.in);
+	private Tb_userController userController = new Tb_userController();
+
+	public void mainMenu() {
+		String menu = """
+					===========================
+					   북 카페 어플 시작 페이지
+					===========================
+					1. 로그인
+					2. 회원 가입
+					3. 프로그램 안내
+					0. 종료
+					===========================
+					선택 : """;
+		while(true) {
+			System.out.println();
+			System.out.print(menu);
+			String choice = sc.next();
+			
+			Tb_user user = null;
+			int result = 0;
+			String id = null;
+			
+			switch (choice) {
+			case "1": break;
+			case "2": 
+				user = inputUser();
+				result = userController.insertUser(user);
+				displayResult("회원가입", result);
+				break;
+//			case "3": 
+//				updateMenu();
+//				break;
+//			case "4": 
+//				id = inputId();
+//				result = userController.deleteUser(id);
+//				displayResult("회원탈퇴", result);
+//				break;
+			case "3": break;
+			case "0": return;
+
+			default:
+				System.out.println("잘못 입력하셨습니다.");
+				break;
+			}
+		}
+	}
+
+	private void updateMenu() {
+		String menu = """
+				+++++++++ 회원 정보수정 +++++++++
+				1. 이름 수정
+				2. 생일 수정
+				3. 핸드폰 번호 수정
+				4. 이메일 수정
+				5. 좋아하는 장르 수정
+				0. 메인메뉴로 돌아가기
+				++++++++++++++++++++++++++++++
+				선택 : """;
+		String id = inputId();
+		List<Tb_user> users = null;
+		
+		while(true) {
+			users = userController.findById(id);
+			displayUsers(users);
+			if (users == null) 
+				return;
+			System.out.print(menu);
+			String choice = sc.next();
+			int result = 0;
+			
+			switch(choice) {
+			case "1": 
+				System.out.print("변경할 이름 : ");
+				String newName = sc.next();
+				result = userController.updateUserName(id, newName);
+				System.out.println("회원명 수정 완료!");
+				break;
+			case "2": 
+				System.out.print("변경할 생일 (ex 1998-03-23) : ");
+				Date newBirthday = Date.valueOf(sc.next());
+				result = userController.updateUserBirthday(id, newBirthday);
+				System.out.println("생일 수정 완료!");
+				break;
+			case "3":
+				System.out.print("변경할 번호 (ex 010-1234-5678) : ");
+				String newPhone = sc.next();
+				result = userController.updateUserPhone(id, newPhone);
+				System.out.println("번호 수정 완료!");
+				break;
+			case "4": 
+				System.out.print("변경할 이메일 : ");
+				String newEmail = sc.next();
+				result = userController.updateUserEmail(id, newEmail);
+				System.out.println("이메일 수정 완료!");
+				break;
+			case "5":
+				System.out.println("변경하고 싶은 좋아하는 장르 : ");
+				String newFavoriteGenre = sc.next();
+				result = userController.updateUserFavoriteGenre(id, newFavoriteGenre);
+				System.out.println("좋아하는 장르 수정 완료!");
+				break;
+			case "0": return;
+			default: System.out.println("> 잘못입력하셨습니다.");
+			
+			}
+			
+		}
+		
+	}
+		
+	private String inputId() {
+		System.out.print("> 아이디 입력 : ");
+		return sc.next();
+	}
+
+	private Tb_user inputUser() {
+		Tb_user user = new Tb_user();
+		System.out.println("> 회원정보를 입력하세요.");
+        for (;;) {
+            System.out.print("> 아이디 : ");
+            user.setId(sc.next());
+            if (userController.findById(user.getId()).isEmpty()) {
+                System.out.println("> 사용가능한 아이디입니다 :)");
+                break;
+            } else {
+                System.out.println("> 사용불가능한 아이디입니다. 다시 입력하세요.");
+                continue;
+            }
+        }
+        System.out.print("> 비밀번호 : ");
+        user.setPassword(sc.next());
+        System.out.print("> 이름 : ");
+		user.setName(sc.next());
+		System.out.print("> 성별(M/F) : ");
+		user.setGender(sc.next());
+		System.out.print("> 생일(ex 1998-03-23) : ");
+		user.setBirthday(Date.valueOf(sc.next()));
+		System.out.print("> 핸드폰 번호(ex 010-1234-5678) : ");
+		user.setPhone(sc.next());
+		System.out.print("> 이메일 : ");
+		user.setEmail(sc.next());
+		System.out.print("> 좋아하는 장르 : ");
+		user.setFavoriteGenre(sc.next());
+		return user;
+	}
+	
+
+	/**
+     * n건의 회원조회 결과를 출력
+     * @param members
+     */
+    private void displayUsers(List<Tb_user> users) {
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.printf("%-10s%-10s%-10s%-10s%-20s%-20s%-20s%-20s%-10s%-10s%-10s%-10s\n", 
+                "ID","Password", "Name", "Gender", "Birthday", "Phone","Email", "CreatedAt", "Balance","Point","IsManager","FavoriteGenre" );
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        if(users == null || users.isEmpty()) {
+            System.out.println("\t\t 조회된 결과가 없습니다.");
+        }
+        else {
+            for(Tb_user user : users) {
+                System.out.printf("%-10s%-10s%-10s%-10s%-20s%-20s%-20s%-20s%-10s%-10s%-10s%-10s\n", 
+                        user.getId(),
+                        user.getPassword(),
+                        user.getName(), 
+                        user.getGender(), 
+                        user.getBirthday(),
+                        user.getPhone(),
+                        user.getEmail(),
+                        new SimpleDateFormat("yyyy-MM-dd HH:mm").format(user.getCreatedAt()),
+                        user.getBalance(),
+                        user.getPoint(),
+                        user.getIsManager(),
+                        user.getFavoriteGenre());
+             
+            }
+        }
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    }
+    
+
+	/**
+     * DML 처리결과 메소드
+     */
+    private void displayResult(String type, int result) {
+        if(result > 0)
+            System.out.println("🎉🎉 " + type + " 성공! 🎉🎉");
+        else
+            System.out.println("😭😭 " + type + " 실패! 😭😭");  
+    }
+    
+
+}
